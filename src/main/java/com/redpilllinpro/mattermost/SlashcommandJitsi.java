@@ -13,10 +13,11 @@ import javax.ws.rs.Produces;
  *
  * @author jena
  */
+@Path("jitsi")
 public class SlashcommandJitsi {
 
     @GET
-    @Path("jitsi")
+    @Path("meet")
     @Produces("application/json")
     public SlashcommandResponse jitsi() {
         SlashcommandResponse resp = new SlashcommandResponse();
