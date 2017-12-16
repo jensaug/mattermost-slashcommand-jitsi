@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
  *
  * @author jena
  */
-@Path("slashcommand")
+@Path("rest")
 public class SlashcommandJitsi {
 
     @GET
