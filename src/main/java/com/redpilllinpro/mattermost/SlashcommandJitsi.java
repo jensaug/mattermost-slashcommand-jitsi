@@ -5,14 +5,22 @@
  */
 package com.redpilllinpro.mattermost;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 /**
  *
  * @author jena
  */
-@ApplicationPath("slashcommand")
-public class SlashcommandApplication extends Application {
+@Path("slashcommand")
+public class SlashcommandJitsi {
+
+    @GET
+    @Path("jitsi")
+    @Produces("text/plain")
+    public String jitsi() {
+        return "Yo Jitsi";
+    }
 
 }
