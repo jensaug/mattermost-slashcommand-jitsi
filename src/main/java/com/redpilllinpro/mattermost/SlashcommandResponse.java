@@ -5,14 +5,11 @@
  */
 package com.redpilllinpro.mattermost;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-
 /**
  *
  * @author jena
  */
-@ApplicationPath("rest")
-public class SlashcommandApplication extends Application {
-
+class SlashcommandResponse {
+    public String response_type = "in_channel";
+    public String text;
 }
