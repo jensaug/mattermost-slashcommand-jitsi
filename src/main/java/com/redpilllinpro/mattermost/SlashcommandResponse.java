@@ -12,5 +12,5 @@ package com.redpilllinpro.mattermost;
 class SlashcommandResponse {
     public String response_type = "in_channel";
     public String text = "## Let's meet!\n";
-    public String username = "jiti-bot";
+    public String username = "jitsi-bot";
 }

@@ -27,7 +27,7 @@ public class SlashcommandJitsi {
         SlashcommandResponse resp = new SlashcommandResponse();
         resp.text += "\n*query:* " + channelName1;
         resp.text += "\n*form:* " + channelName2;
-        resp.text += "\n*addUser is called, userAgent *: " + userAgent;
+        resp.text += "\n*addUser Yo called, userAgent *: " + userAgent;
         return Response.status(200)
                 .entity(resp)
                 .build();
