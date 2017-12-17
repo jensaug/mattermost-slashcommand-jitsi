@@ -20,6 +20,10 @@ class SlashcommandResponse {
         this.goto_location = goto_location;
     }
 
+    public String getGoto_location() {
+        return goto_location;
+    }
+    
     public String getResponse_type() {
         return response_type;
     }
