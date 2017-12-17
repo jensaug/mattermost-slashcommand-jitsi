@@ -5,6 +5,7 @@
  */
 package com.redpilllinpro.mattermost;
 
+import static com.redpilllinpro.mattermost.SlashcommandParam.*;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
@@ -23,11 +24,17 @@ public class SlashcommandJitsi {
     @POST
     @Path("meet")
     @Produces("application/json")
-    public Response jitsi(@HeaderParam("user-agent") String userAgent, @QueryParam("channel_name") String channelName1, @FormParam("channel_name") String channelName2) {
+    public Response jitsi(
+            @FormParam(CHANNEL_NAME) String channelName,
+            @FormParam(TEAM_DOMAIN) String teamDomain,
+            @FormParam(TEXT) String text,
+            @FormParam(USER_NAME) String userName
+    ) {
         SlashcommandResponse resp = new SlashcommandResponse();
-        resp.text += "\n*query:* " + channelName1;
-        resp.text += "\n*form:* " + channelName2;
-        resp.text += "\n*addUser Yo called, userAgent *: " + userAgent;
+        String markdown = "#### " + userName + " wants to meet!";
+        markdown += "\n Surf to https://meet.redpill-linpro.com/" + teamDomain + channelName;
+        markdown += "\n text: " + text;
+        resp.setText(markdown);
         return Response.status(200)
                 .entity(resp)
                 .build();
