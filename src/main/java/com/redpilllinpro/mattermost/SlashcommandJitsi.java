@@ -5,9 +5,13 @@
  */
 package com.redpilllinpro.mattermost;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -19,9 +23,10 @@ public class SlashcommandJitsi {
     @GET
     @Path("meet")
     @Produces("application/json")
-    public SlashcommandResponse jitsi() {
+    public SlashcommandResponse jitsi(@QueryParam("channel_name") String channelName1, @HeaderParam("channel_name") String channelName2) {
         SlashcommandResponse resp = new SlashcommandResponse();
-        resp.text = "Let's meet!";
+        resp.text += "\n*query:* " + channelName1;
+        resp.text += "\n*header:* " + channelName2;
         return resp;
     }
 
