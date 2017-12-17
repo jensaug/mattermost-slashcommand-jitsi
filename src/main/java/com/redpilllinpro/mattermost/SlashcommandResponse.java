@@ -11,9 +11,14 @@ package com.redpilllinpro.mattermost;
  */
 class SlashcommandResponse {
 
+    private String goto_location;
     private String response_type = "in_channel";
     private String username = "jitsi-bot";
     private String text;
+
+    public void setGoto_location(String goto_location) {
+        this.goto_location = goto_location;
+    }
 
     public String getResponse_type() {
         return response_type;

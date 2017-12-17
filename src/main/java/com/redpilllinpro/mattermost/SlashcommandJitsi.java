@@ -29,11 +29,14 @@ public class SlashcommandJitsi {
             @FormParam(TEXT) String text,
             @FormParam(USER_NAME) String userName
     ) {
-        SlashcommandResponse resp = new SlashcommandResponse();
+        String url = "https://meet.redpill-linpro.com/" + toCamelCase(teamDomain + " " + channelName);
         String markdown = "#### " + userName + " wants to meet!";
-        markdown += "\n Surf to https://meet.redpill-linpro.com/" + toCamelCase(teamDomain + " " + channelName);
-        markdown += "\n text: " + text;
+        markdown += "\n Surf to " + url;
+        
+        SlashcommandResponse resp = new SlashcommandResponse();
         resp.setText(markdown);
+        resp.setGoto_location(url);
+        
         return Response.status(200)
                 .entity(resp)
                 .build();
