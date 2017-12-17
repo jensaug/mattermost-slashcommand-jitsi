@@ -5,11 +5,9 @@
  */
 package com.redpilllinpro.mattermost;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -22,7 +20,7 @@ import javax.ws.rs.core.Response;
 @Path("jitsi")
 public class SlashcommandJitsi {
 
-    @GET
+    @POST
     @Path("meet")
     @Produces("application/json")
     public Response jitsi(@HeaderParam("user-agent") String userAgent, @QueryParam("channel_name") String channelName1, @FormParam("channel_name") String channelName2) {
