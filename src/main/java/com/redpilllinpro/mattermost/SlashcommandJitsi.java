@@ -40,7 +40,8 @@ public class SlashcommandJitsi {
     }
 
     private String toCamelCase(String string) {
-        return WordUtils.capitalizeFully(string, new char[]{'_', ' ', ':'})
+        return WordUtils.capitalizeFully(string, new char[]{'-','_', ' ', ':'})
+                .replaceAll("-", "")
                 .replaceAll("_", "")
                 .replaceAll(" ", "")
                 .replaceAll(":", "");
