@@ -10,7 +10,24 @@ package com.redpilllinpro.mattermost;
  * @author jena
  */
 class SlashcommandResponse {
-    public String response_type = "in_channel";
-    public String text = "## Let's meet!\n";
-    public String username = "jitsi-bot";
+
+    private String response_type = "in_channel";
+    private String username = "jitsi-bot";
+    private String text;
+
+    public String getResponse_type() {
+        return response_type;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }
