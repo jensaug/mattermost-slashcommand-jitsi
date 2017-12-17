@@ -7,6 +7,7 @@ package com.redpilllinpro.mattermost;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
@@ -24,13 +25,14 @@ public class SlashcommandJitsi {
     @GET
     @Path("meet")
     @Produces("application/json")
-    public Response jitsi(@HeaderParam("user-agent") String userAgent, @QueryParam("channel_name") String channelName1, @HeaderParam("channel_name") String channelName2) {
+    public Response jitsi(@HeaderParam("user-agent") String userAgent, @QueryParam("channel_name") String channelName1, @FormParam("channel_name") String channelName2) {
         SlashcommandResponse resp = new SlashcommandResponse();
         resp.text += "\n*query:* " + channelName1;
-        resp.text += "\n*header:* " + channelName2;
-        resp.text += "addUser is called, userAgent : " + userAgent;
-		return Response.status(200)
-			.entity(resp)
-			.build();
+        resp.text += "\n*form:* " + channelName2;
+        resp.text += "\n*addUser is called, userAgent *: " + userAgent;
+        return Response.status(200)
+                .entity(resp)
+                .build();
     }
+
 }
