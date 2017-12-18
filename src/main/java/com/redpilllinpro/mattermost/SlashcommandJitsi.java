@@ -33,7 +33,7 @@ public class SlashcommandJitsi extends Slascommand {
         String url = getRoomUrl(room);
         String markdown = "##### " + userName + " wants to meet :video_camera:";
         markdown += "\n :point_right: Goto [" + room + " jitsi room](" + url+ ")";
-        markdown += text != null ? "\n" + text : "\n:grey_question:";
+        markdown += text != null && !"".equals(text) ? "\n" + text : "\n:grey_question:";
         
         SlashcommandResponse resp = new SlashcommandResponse();
         resp.setText(markdown);
