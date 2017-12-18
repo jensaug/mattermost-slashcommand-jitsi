@@ -29,11 +29,13 @@ public class SlashcommandJitsi extends Slascommand {
             @FormParam(TEXT) String text,
             @FormParam(USER_NAME) String userName
     ) {
-        String room = createValidRoomName(teamDomain + " " + channelName);
+        String room = 
+                text != null && !"".equals(text) ?
+                text :
+                createValidRoomName(teamDomain + " " + channelName);
         String url = getRoomUrl(room);
         String markdown = "##### " + userName + " wants to meet :video_camera:";
-        markdown += "\n :point_right: Goto [" + room + " jitsi room](" + url+ ")";
-        markdown += text != null && !"".equals(text) ? "\n" + text : "\n:grey_question:";
+        markdown += "\n :point_right: Surf to [" + url +"](" + url+ ")";
         
         SlashcommandResponse resp = new SlashcommandResponse();
         resp.setText(markdown);
