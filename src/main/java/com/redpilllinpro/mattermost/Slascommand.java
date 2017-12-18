@@ -16,7 +16,7 @@ class Slascommand {
     private static final String HOST = "https://meet.redpill-linpro.com";
     
     protected String getRoomUrl(String room) {
-        return HOST + "/" + createValidRoomName(room);
+        return HOST + "/" + room;
     }
     
     protected String createValidRoomName(String room) {
