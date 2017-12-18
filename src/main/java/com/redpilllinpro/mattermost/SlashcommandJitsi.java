@@ -18,7 +18,7 @@ import org.apache.commons.text.WordUtils;
  * @author jena
  */
 @Path("jitsi")
-public class SlashcommandJitsi {
+public class SlashcommandJitsi extends Slascommand {
 
     @POST
     @Path("meet")
@@ -29,9 +29,11 @@ public class SlashcommandJitsi {
             @FormParam(TEXT) String text,
             @FormParam(USER_NAME) String userName
     ) {
-        String url = "https://meet.redpill-linpro.com/" + toCamelCase(teamDomain + " " + channelName);
-        String markdown = "#### " + userName + " wants to meet!";
-        markdown += "\n Surf to " + url;
+        String room = createValidRoomName(teamDomain + " " + channelName);
+        String url = getRoomUrl(room);
+        String markdown = "##### " + userName + " wants to meet :video_camera:";
+        markdown += "\n :point_right: Goto [" + room + " jitsi room](" + url+ ")";
+        markdown += text != null ? "\n" + text : "\n:grey_question:";
         
         SlashcommandResponse resp = new SlashcommandResponse();
         resp.setText(markdown);
@@ -40,13 +42,5 @@ public class SlashcommandJitsi {
         return Response.status(200)
                 .entity(resp)
                 .build();
-    }
-
-    private String toCamelCase(String string) {
-        return WordUtils.capitalizeFully(string, new char[]{'-','_', ' ', ':'})
-                .replaceAll("-", "")
-                .replaceAll("_", "")
-                .replaceAll(" ", "")
-                .replaceAll(":", "");
     }
 }
