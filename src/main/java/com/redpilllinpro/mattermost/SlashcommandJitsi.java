@@ -32,7 +32,7 @@ public class SlashcommandJitsi extends Slascommand {
         String room = 
                 text != null && !"".equals(text) ?
                 text :
-                createValidRoomName(teamDomain + " " + channelName);
+                createValidCamelCaseRoomName(teamDomain + " " + channelName);
         String url = getRoomUrl(room);
         String markdown = "##### " + userName + " wants to meet :video_camera:";
         markdown += "\n :point_right: Surf to [" + url +"](" + url+ ")";

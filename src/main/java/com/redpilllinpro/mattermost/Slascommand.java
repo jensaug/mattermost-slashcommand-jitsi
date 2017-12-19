@@ -19,8 +19,16 @@ class Slascommand {
         return HOST + "/" + room;
     }
     
-    protected String createValidRoomName(String room) {
+    protected String createValidCamelCaseRoomName(String room) {
+        return WordUtils.capitalizeFully(room, new char[]{'-','_', ' ', ':'})
+                .replaceAll("-", "")
+                .replaceAll("_", "")
+                .replaceAll(" ", "")
+                .replaceAll(":", "");
+    }    
+    
+    protected String createValidPathRoomName(String room) {
         return room
                 .replaceAll(",", "_");
-    }    
+    }       
 }
