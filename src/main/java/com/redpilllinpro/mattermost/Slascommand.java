@@ -20,10 +20,7 @@ class Slascommand {
     }
     
     protected String createValidRoomName(String room) {
-        return WordUtils.capitalizeFully(room, new char[]{'-','_', ' ', ':'})
-                .replaceAll("-", "")
-                .replaceAll("_", "")
-                .replaceAll(" ", "")
-                .replaceAll(":", "");
+        return room
+                .replaceAll(",", "_");
     }    
 }
