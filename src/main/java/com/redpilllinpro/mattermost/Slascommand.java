@@ -13,10 +13,11 @@ import org.apache.commons.text.WordUtils;
  */
 class Slascommand {
 
-    private static final String HOST = "https://meet.redpill-linpro.com";
+    private static final String HOST_RL = "https://meet.redpill-linpro.com";
+    private static final String HOST_JITSI = "https://meet.jit.si";
     
-    protected String getRoomUrl(String room) {
-        return HOST + "/" + room;
+    protected String getRoomUrl(String room, boolean external) {
+        return (external ? HOST_JITSI : HOST_RL) + "/" + room;
     }
     
     protected String createValidCamelCaseRoomName(String room) {
@@ -29,6 +30,7 @@ class Slascommand {
     
     protected String createValidPathRoomName(String room) {
         return room
-                .replaceAll(",", "_");
+                .replaceAll(",", "_")
+                .replaceAll(";", "_");
     }       
 }

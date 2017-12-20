@@ -33,16 +33,42 @@ public class SlashcommandJitsi extends Slascommand {
                 text != null && !"".equals(text) ?
                 text :
                 createValidCamelCaseRoomName(teamDomain + " " + channelName);
-        String url = getRoomUrl(room);
-        String markdown = "##### " + userName + " wants to meet :video_camera:";
-        markdown += "\n :point_right: Surf to [" + url +"](" + url+ ")";
-        
+        String url = getRoomUrl(room, false);
         SlashcommandResponse resp = new SlashcommandResponse();
-        resp.setText(markdown);
+        resp.setText(createMarkdown(userName, url));
         resp.setGoto_location(url);
         
         return Response.status(200)
                 .entity(resp)
                 .build();
+    }
+    
+    @POST
+    @Path("meet-external")
+    @Produces("application/json")
+    public Response jitDotSi(
+            @FormParam(CHANNEL_NAME) String channelName,
+            @FormParam(TEAM_DOMAIN) String teamDomain,
+            @FormParam(TEXT) String text,
+            @FormParam(USER_NAME) String userName
+    ) {
+        String room = 
+                text != null && !"".equals(text) ?
+                text :
+                createValidPathRoomName(teamDomain + " " + channelName);
+        String url = getRoomUrl(room, true);        
+        SlashcommandResponse resp = new SlashcommandResponse();
+        resp.setText(createMarkdown(userName, url));
+        resp.setGoto_location(url);
+        
+        return Response.status(200)
+                .entity(resp)
+                .build();
+    }    
+
+    private String createMarkdown(String userName, String url) {
+        String markdown = "##### " + userName + " wants to meet :video_camera:";
+        markdown += "\n :point_right: Surf to [" + url +"](" + url+ ")";
+        return markdown;
     }
 }
