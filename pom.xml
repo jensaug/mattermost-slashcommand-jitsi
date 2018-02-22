@@ -5,9 +5,21 @@
     <groupId>com.redpill-linpro.mattermost</groupId>
     <artifactId>mattermost-slashcommand-jitsi</artifactId>
     <packaging>war</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Mattermost slashcommand for jit.si</name>
-  
+
+    <developers>
+        <developer>
+            <id>jena</id>
+            <name>Jens X Augustsson</name>
+            <email>jens@augustsson.eu</email>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+      
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
