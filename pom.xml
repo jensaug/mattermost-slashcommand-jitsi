@@ -5,8 +5,12 @@
     <groupId>com.redpill-linpro.mattermost</groupId>
     <artifactId>mattermost-slashcommand-jitsi</artifactId>
     <packaging>war</packaging>
-    <version>1.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Mattermost slashcommand for jit.si</name>
+ 
+    <scm>
+       <developerConnection>scm:git:origin</developerConnection>
+   </scm>
   
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
