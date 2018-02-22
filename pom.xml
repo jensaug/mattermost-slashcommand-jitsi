@@ -5,7 +5,7 @@
     <groupId>com.redpill-linpro.mattermost</groupId>
     <artifactId>mattermost-slashcommand-jitsi</artifactId>
     <packaging>war</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>Mattermost slashcommand for jit.si</name>
   
     <properties>
